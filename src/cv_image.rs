@@ -29,3 +29,10 @@ pub fn threshold_image() {
     threshold(&src, &mut target, 128.0, 255.0, THRESH_BINARY).unwrap();
     imwrite("result.png", &target, &Vector::new()).ok();
 }
+
+pub fn blur_image() {
+    let img = load_image(IMREAD_ANYCOLOR);
+    let mut target = Mat::default();
+    blur(&img, &mut target, Size_ { width: (32), height: (32) }, Point_ { x: (-1), y: (-1) }, BORDER_DEFAULT).unwrap();
+    imwrite("result.png", &target, &Vector::new()).ok();
+}
