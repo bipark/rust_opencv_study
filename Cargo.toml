@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 opencv = "0.73"
 console = "0.15.2"
+chrono = "0.2.16"
