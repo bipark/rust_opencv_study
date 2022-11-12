@@ -13,6 +13,7 @@ fn main() {
             match input {
                 'c' => canny::my_canny(),
                 's' => cv_image::show_image(),
+                'r' => cv_image::crop_image(),
                 'v' => cv_video::open_video(),
                 'x' => {
                     break;
