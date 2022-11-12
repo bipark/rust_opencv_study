@@ -14,6 +14,7 @@ fn main() {
                 'c' => canny::my_canny(),
                 's' => cv_image::show_image(),
                 'r' => cv_image::crop_image(),
+                't' => cv_image::threshold_image(),
                 'v' => cv_video::open_video(),
                 'x' => {
                     break;
