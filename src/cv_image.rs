@@ -49,6 +49,10 @@ pub fn morphology_image(kind:i8) {
         dilate(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
     } else if kind == 1 {
         erode(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    } else if kind == 2 {
+        morphology_ex(&img, &mut target, MORPH_OPEN, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    } else if kind == 3 {
+        morphology_ex(&img, &mut target, MORPH_CLOSE, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
     }
     
     imshow("IMAGE", &target).unwrap();

@@ -20,6 +20,8 @@ fn main() {
                 'b' => cv_image::blur_image(),
                 'd' => cv_image::morphology_image(0),
                 'e' => cv_image::morphology_image(1),
+                'f' => cv_image::morphology_image(2),
+                'g' => cv_image::morphology_image(3),
                 'v' => cv_video::open_video(),
                 'p' => cv_video::save_video(),
                 'o' => cv_contour::contour_image(),
