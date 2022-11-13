@@ -1,9 +1,23 @@
-# Rust OpenCV Study
+# Rust OpenCV Examples
 Rust &amp; OpenCV Example Codes
 
-# Run
+# 실행
 $ cargo run
 
-# Reference
+# 내용
+* imread
+* imshow
+* imwrite
+* threshold
+* blur
+* canny
+* sobel
+* threshold
+* bitwise_not
+* find_contours
+* draw_contours
+
+
+# 참조
 https://github.com/twistedfall/opencv-rust
 
