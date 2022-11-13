@@ -18,6 +18,8 @@ fn main() {
                 'r' => cv_image::crop_image(),
                 't' => cv_image::threshold_image(),
                 'b' => cv_image::blur_image(),
+                'd' => cv_image::dilation_image(),
+                'e' => cv_image::erode_image(),
                 'v' => cv_video::open_video(),
                 'p' => cv_video::save_video(),
                 'o' => cv_contour::contour_image(),

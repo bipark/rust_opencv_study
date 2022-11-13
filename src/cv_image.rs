@@ -36,3 +36,32 @@ pub fn blur_image() {
     blur(&img, &mut target, Size_ { width: (32), height: (32) }, Point_ { x: (-1), y: (-1) }, BORDER_DEFAULT).unwrap();
     imwrite("result.png", &target, &Vector::new()).ok();
 }
+
+pub fn dilation_image() {
+    let img = load_image(IMREAD_ANYCOLOR);
+    let mut target = Mat::default();
+    let anchor = Point::new(0, 0);
+    let size = Size::new(2,2);
+    let border = Scalar::new(0.0, 0.0, 0.0, 0.0);
+
+    let kernel = get_structuring_element(MORPH_CROSS, size, anchor).unwrap();
+    dilate(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    imshow("IMAGE", &target).unwrap();
+    wait_key(1).unwrap();
+    destroy_all_windows().unwrap();    
+}
+
+pub fn erode_image() {
+    let img = load_image(IMREAD_ANYCOLOR);
+    let mut target = Mat::default();
+    let anchor = Point::new(0, 0);
+    let size = Size::new(2,2);
+    let border = Scalar::new(0.0, 0.0, 0.0, 0.0);
+
+    let kernel = get_structuring_element(MORPH_CROSS, size, anchor).unwrap();
+    erode(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    imshow("IMAGE", &target).unwrap();
+    wait_key(1).unwrap();
+    destroy_all_windows().unwrap();    
+}
+

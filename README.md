@@ -10,6 +10,8 @@ $ cargo run
 * imwrite
 * threshold
 * blur
+* erode
+* dilate
 * canny
 * sobel
 * threshold
