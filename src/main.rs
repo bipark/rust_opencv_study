@@ -3,6 +3,7 @@ use console::Term;
 mod cv_edge;
 mod cv_image;
 mod cv_video;
+mod cv_contour;
 
 //------------------------------------------------------------------------------//
 fn main() {
@@ -19,6 +20,7 @@ fn main() {
                 'b' => cv_image::blur_image(),
                 'v' => cv_video::open_video(),
                 'p' => cv_video::save_video(),
+                'o' => cv_contour::contour_image(),
                 'x' => {
                     break;
                 },
