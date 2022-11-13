@@ -28,13 +28,14 @@ pub fn contour_image() {
     // find contours
     let offset = Point::new(0, 0);
     let mut contours = VectorOfMat::new();
-    find_contours(&target2, &mut contours, RETR_CCOMP, CHAIN_APPROX_NONE, offset).unwrap();
+    find_contours(&target2, &mut contours, RETR_EXTERNAL, CHAIN_APPROX_NONE, offset).unwrap();
+    println!("CONTOURS lenght {}", contours.len());
 
     // draw contours
     let mut target4 = src.clone();
     let color = Scalar::new(0.0, 0.0, 255.0, 0.0);
-    let hierarchy = Mat::default();
-    draw_contours(&mut target4, &contours, 0, color, 2, 3, &hierarchy, 1, offset).unwrap();
+    let hierachy = Mat::default();
+    draw_contours(&mut target4, &contours, -1, color, 1, LINE_4, &hierachy, 1, offset).unwrap();    
 
     // draw
     imshow("IMAGE", &target4).unwrap();
