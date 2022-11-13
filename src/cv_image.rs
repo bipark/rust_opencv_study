@@ -37,7 +37,7 @@ pub fn blur_image() {
     imwrite("result.png", &target, &Vector::new()).ok();
 }
 
-pub fn dilation_image() {
+pub fn morphology_image(kind:i8) {
     let img = load_image(IMREAD_ANYCOLOR);
     let mut target = Mat::default();
     let anchor = Point::new(0, 0);
@@ -45,23 +45,13 @@ pub fn dilation_image() {
     let border = Scalar::new(0.0, 0.0, 0.0, 0.0);
 
     let kernel = get_structuring_element(MORPH_CROSS, size, anchor).unwrap();
-    dilate(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    if kind == 0 {
+        dilate(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    } else if kind == 1 {
+        erode(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
+    }
+    
     imshow("IMAGE", &target).unwrap();
     wait_key(1).unwrap();
     destroy_all_windows().unwrap();    
 }
-
-pub fn erode_image() {
-    let img = load_image(IMREAD_ANYCOLOR);
-    let mut target = Mat::default();
-    let anchor = Point::new(0, 0);
-    let size = Size::new(2,2);
-    let border = Scalar::new(0.0, 0.0, 0.0, 0.0);
-
-    let kernel = get_structuring_element(MORPH_CROSS, size, anchor).unwrap();
-    erode(&img, &mut target, &kernel, anchor, 5, BORDER_CONSTANT, border).unwrap();
-    imshow("IMAGE", &target).unwrap();
-    wait_key(1).unwrap();
-    destroy_all_windows().unwrap();    
-}
-
